@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart } from "lucide-react";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right";
+import Heart from "lucide-react/dist/esm/icons/heart";
 import heroImage from "@/assets/top.jpg";
 <img
   src={heroImage}
