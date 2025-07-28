@@ -1,5 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Utensils, GraduationCap, Heart, Home } from "lucide-react";
+import Utensils from "lucide-react/dist/esm/icons/utensils";
+import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap";
+import Heart from "lucide-react/dist/esm/icons/heart";
+import Home from "lucide-react/dist/esm/icons/home";
 import educationImage from "@/assets/education-impact.jpg";
 import nutritionImage from "@/assets/nutrition-impact.jpg";
 
