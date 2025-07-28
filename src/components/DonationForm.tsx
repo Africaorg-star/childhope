@@ -5,14 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-import Heart from "lucide-react/dist/esm/icons/heart";
-import Utensils from "lucide-react/dist/esm/icons/utensils";
-import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap";
-import Shield from "lucide-react/dist/esm/icons/shield";
-import Gift from "lucide-react/dist/esm/icons/gift";
-import Smile from "lucide-react/dist/esm/icons/smile";
-import Droplet from "lucide-react/dist/esm/icons/droplet";
-import Shirt from "lucide-react/dist/esm/icons/shirt";
+// Each icon must be imported separately with full path
+import Heart from "lucide-react/dist/esm/icons/heart.js";
+import Utensils from "lucide-react/dist/esm/icons/utensils.js";
+import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap.js";
+import Shield from "lucide-react/dist/esm/icons/shield.js";
+import Gift from "lucide-react/dist/esm/icons/gift.js";
+import Smile from "lucide-react/dist/esm/icons/smile.js";
+import Droplet from "lucide-react/dist/esm/icons/droplet.js";
+import Shirt from "lucide-react/dist/esm/icons/shirt.js";
 
 const DonationSection = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(50);
@@ -20,6 +21,7 @@ const DonationSection = () => {
   const [donationType, setDonationType] = useState<"one-time" | "monthly">("one-time");
   const { toast } = useToast();
 
+  // ... rest of your component code remains exactly the same
   const donationOptions = [
     {
       amount: 1,
