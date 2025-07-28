@@ -5,17 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-// Use this EXACT import syntax
-import { 
-  Heart, 
-  Utensils, 
-  GraduationCap, 
-  Shield, 
-  Gift, 
-  Smile, 
-  Droplet, 
-  Shirt 
-} from "lucide-react/dist/esm/icons/index.js";
+
+import Heart from 'lucide-react/dist/esm/icons/heart.js';
+import Utensils from 'lucide-react/dist/esm/icons/utensils.js';
+import GraduationCap from 'lucide-react/dist/esm/icons/graduation-cap.js';
+import Shield from 'lucide-react/dist/esm/icons/shield.js';
+import Gift from 'lucide-react/dist/esm/icons/gift.js';
+import Smile from 'lucide-react/dist/esm/icons/smile.js';
+import Droplet from 'lucide-react/dist/esm/icons/droplet.js';
+import Shirt from 'lucide-react/dist/esm/icons/shirt.js';
 const DonationSection = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(50);
   const [customAmount, setCustomAmount] = useState<string>("");
