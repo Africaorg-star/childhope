@@ -1,0 +1,11 @@
+{
+  "name": "my-tailwind-site",
+  "importAlias": "@",
+  "outDir": "./src/components",
+  "componentDefaults": {},
+  "plugins": ["shadcn"],
+  "paths": {
+    "components": "src/components",
+    "utils": "src/lib/utils"
+  }
+}
