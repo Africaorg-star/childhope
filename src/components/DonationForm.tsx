@@ -5,26 +5,40 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
+// Optimized Lucide icon imports
+import HeartIcon from 'lucide-react/dist/esm/icons/heart.js';
+import UtensilsIcon from 'lucide-react/dist/esm/icons/utensils.js';
+import GraduationCapIcon from 'lucide-react/dist/esm/icons/graduation-cap.js';
+import ShieldIcon from 'lucide-react/dist/esm/icons/shield.js';
+import GiftIcon from 'lucide-react/dist/esm/icons/gift.js';
+import SmileIcon from 'lucide-react/dist/esm/icons/smile.js';
+import DropletIcon from 'lucide-react/dist/esm/icons/droplet.js';
+import ShirtIcon from 'lucide-react/dist/esm/icons/shirt.js';
 
-import Heart from 'lucide-react/dist/esm/icons/heart.js';
-import Utensils from 'lucide-react/dist/esm/icons/utensils.js';
-import GraduationCap from 'lucide-react/dist/esm/icons/graduation-cap.js';
-import Shield from 'lucide-react/dist/esm/icons/shield.js';
-import Gift from 'lucide-react/dist/esm/icons/gift.js';
-import Smile from 'lucide-react/dist/esm/icons/smile.js';
-import Droplet from 'lucide-react/dist/esm/icons/droplet.js';
-import Shirt from 'lucide-react/dist/esm/icons/shirt.js';
+type DonationType = "one-time" | "monthly";
+
+interface DonationOption {
+  amount: number;
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  impact: string;
+  bgColor: string;
+  iconColor: string;
+  selectedColor: string;
+  popular?: boolean;
+}
+
 const DonationSection = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(50);
-  const [customAmount, setCustomAmount] = useState<string>("");
-  const [donationType, setDonationType] = useState<"one-time" | "monthly">("one-time");
+  const [customAmount, setCustomAmount] = useState("");
+  const [donationType, setDonationType] = useState<DonationType>("one-time");
   const { toast } = useToast();
 
-  // ... rest of your component code remains exactly the same
-  const donationOptions = [
+  const donationOptions: DonationOption[] = [
     {
       amount: 1,
-      icon: Droplet,
+      icon: DropletIcon,
       title: "Clean Water",
       description: "Provides one bottle of clean water",
       impact: "Hydration for a child",
@@ -34,7 +48,7 @@ const DonationSection = () => {
     },
     {
       amount: 5,
-      icon: Shirt,
+      icon: ShirtIcon,
       title: "Clothing",
       description: "Provides warm clothing for winter",
       impact: "Protection from elements",
@@ -44,7 +58,7 @@ const DonationSection = () => {
     },
     {
       amount: 10,
-      icon: Smile,
+      icon: SmileIcon,
       title: "Love & Support",
       description: "Provides daily basics",
       impact: "Daily essentials",
@@ -54,7 +68,7 @@ const DonationSection = () => {
     },
     {
       amount: 20,
-      icon: Utensils,
+      icon: UtensilsIcon,
       title: "Feed a Child",
       description: "Provides nutritious meals for 1 week",
       impact: "1 week of meals",
@@ -65,7 +79,7 @@ const DonationSection = () => {
     },
     {
       amount: 50,
-      icon: GraduationCap,
+      icon: GraduationCapIcon,
       title: "Education Kit",
       description: "School supplies and books for 1 month",
       impact: "1 month of education",
@@ -75,7 +89,7 @@ const DonationSection = () => {
     },
     {
       amount: 100,
-      icon: Shield,
+      icon: ShieldIcon,
       title: "Healthcare Support",
       description: "Medical care and vitamins for 1 month",
       impact: "Essential healthcare",
@@ -141,13 +155,13 @@ const DonationSection = () => {
 
           {/* Donation Options */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {donationOptions.map((option, index) => {
+            {donationOptions.map((option) => {
               const IconComponent = option.icon;
               const isSelected = selectedAmount === option.amount;
 
               return (
                 <div
-                  key={index}
+                  key={option.amount}
                   className={`cursor-pointer transition-all duration-300 hover:scale-[1.02] rounded-xl p-1 ${
                     isSelected ? option.selectedColor + " shadow-lg" : option.bgColor
                   }`}
@@ -203,7 +217,7 @@ const DonationSection = () => {
           {(selectedAmount || customAmount) && (
             <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-6 mb-8 text-center backdrop-blur-sm">
               <div className="flex items-center justify-center mb-4">
-                <Heart className="h-8 w-8 text-primary mr-2" />
+                <HeartIcon className="h-8 w-8 text-primary mr-2" />
                 <span className="text-2xl font-bold text-foreground">
                   Your ${selectedAmount || customAmount} {donationType === "monthly" ? "monthly " : ""}donation will:
                 </span>
@@ -212,19 +226,19 @@ const DonationSection = () => {
                 <div className="bg-blue-50/50 p-3 rounded-lg">
                   <div className="font-semibold text-foreground">Provide</div>
                   <div className="text-muted-foreground">
-                    {Math.floor((selectedAmount || parseInt(customAmount) || 0) / 1)} bottles of clean water
+                    {Math.floor((selectedAmount || parseInt(customAmount) || 0 / 1)} bottles of clean water
                   </div>
                 </div>
                 <div className="bg-purple-50/50 p-3 rounded-lg">
                   <div className="font-semibold text-foreground">Clothe</div>
                   <div className="text-muted-foreground">
-                    {Math.floor((selectedAmount || parseInt(customAmount) || 0) / 5)} children with warm clothing
+                    {Math.floor((selectedAmount || parseInt(customAmount) || 0 / 5)} children with warm clothing
                   </div>
                 </div>
                 <div className="bg-orange-50/50 p-3 rounded-lg">
                   <div className="font-semibold text-foreground">Feed</div>
                   <div className="text-muted-foreground">
-                    {Math.floor((selectedAmount || parseInt(customAmount) || 0) / 3)} children for a week
+                    {Math.floor((selectedAmount || parseInt(customAmount) || 0 / 3)} children for a week
                   </div>
                 </div>
               </div>
@@ -238,7 +252,7 @@ const DonationSection = () => {
               onClick={handleDonate}
               className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary hover:to-primary text-primary-foreground px-12 py-6 text-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              <Heart className="mr-3 h-6 w-6" />
+              <HeartIcon className="mr-3 h-6 w-6" />
               Donate {selectedAmount || customAmount ? `$${selectedAmount || customAmount}` : ""}{" "}
               {donationType === "monthly" ? "Monthly" : "Now"}
             </Button>
@@ -256,4 +270,3 @@ const DonationSection = () => {
 };
 
 export default DonationSection;
-
