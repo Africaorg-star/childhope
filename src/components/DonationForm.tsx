@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import Heart from "lucide-react/dist/esm/icons/heart";
-import Utensils from "lucide-react/dist/esm/icons/utensils";
 import GraduationCap from "lucide-react/dist/esm/icons/graduation-cap";
 import Shield from "lucide-react/dist/esm/icons/shield";
 import Gift from "lucide-react/dist/esm/icons/gift";
