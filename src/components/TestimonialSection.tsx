@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Star, Quote } from "lucide-react";
+import Star from "lucide-react/dist/esm/icons/star";
+import Quote from "lucide-react/dist/esm/icons/quote";
 
 const TestimonialSection = () => {
   const testimonials = [
