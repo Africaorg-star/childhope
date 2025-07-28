@@ -1,24 +1,13 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import { componentTagger } from "lovable-tagger";
-
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-    hmr: {
-      overlay: false, // ✅ Disables browser error overlay
-    },
+export default defineConfig({
+  optimizeDeps: {
+    include: [
+      'lucide-react',
+      'lucide-react/dist/esm/icons/index.js'
+    ]
   },
-  plugins: [
-    react(),
-    ...(mode === "development" ? [componentTagger()] : []),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"), // ✅ This enables @/ to work properly
-    },
-  },
-}));
+  build: {
+    commonjsOptions: {
+      include: [/lucide-react/, /node_modules/]
+    }
+  }
+})
